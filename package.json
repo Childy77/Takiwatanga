@@ -23,7 +23,8 @@
   "homepage": "https://github.com/Childy77/Takiwatanga#readme",
   "devDependencies": {
     "concurrently": "^8.0.1"
+  },
+  "dependencies": {
+    "react-bootstrap": "^2.7.4"
   }
-
- 
 }
