@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
-function Login(props) {
+function Signin(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN);
 
@@ -33,7 +33,7 @@ function Login(props) {
     <div className="container ">
       <Link to="/signup">← Go to Signup</Link>
 
-      <h2>Login</h2>
+      <h2>Sign in</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between">
           <label htmlFor="email">Email address:</label>
@@ -68,4 +68,4 @@ function Login(props) {
   );
 }
 
-export default Login;
+export default Signin;
