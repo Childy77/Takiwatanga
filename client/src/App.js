@@ -1,18 +1,22 @@
-import logo from './logo.svg';
+
+import { Routes, Route } from "react-router-dom"
 import './App.css';
 import Header from './components/header';
-import Logo from './components/logo';
-import About from './components/about';
-import Start from './components/sign-up';
+import Home from './pages/Home';
 import Footer from './components/footer';
+import Profile from './pages/Profile';
 
 function App() {
+ 
+
+  
   return (
     <div className="App">
       <Header/>
-      <Logo/>
-      <About/>
-      <Start/>
+      <Routes>
+        <Route path='/'element={<Home/>}/>
+        <Route path='/profile'element={<Profile/>}/>
+      </Routes>
       <Footer/>
     </div>
   );
