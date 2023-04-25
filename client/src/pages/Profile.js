@@ -42,7 +42,7 @@ function Profile () {
                     <p className="mb-0">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed.</p>
                 </div>
             </div>
-            <div className="col-lg-12">
+           {/*  <div className="col-lg-12">
                 <div className="row">
                     <div className="col-lg-12 mb-4 mb-sm-5">
                         <div className="mb-4 mb-sm-5">
@@ -92,7 +92,7 @@ function Profile () {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     </div>
 </section>
