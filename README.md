@@ -31,7 +31,7 @@ Colton Taylor-Ortiz (https://github.com/)-
 
 Ashley Arena (https://github.com/aecarena) - 
 
-Johann Kubeja (https://github.com/) - 
+Johann Kubeja (https://github.com/JohannKubeja) - 
 
 
 ## License
