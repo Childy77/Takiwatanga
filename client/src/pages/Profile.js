@@ -1,103 +1,130 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Profile () {
-    return (
-        <section className="bg-light">
-    <div className="container">
+function Profile() {
+  const [name, setName] = useState("John mark Doe Kyzer");
+  const [position, setPosition] = useState("Coach");
+  const [experience, setExperience] = useState("10 Years");
+  const [email, setEmail] = useState("edith@mail.com");
+  const [website, setWebsite] = useState("www.example.com");
+  const [phone, setPhone] = useState("507-541-4567");
+  const [about, setAbout] = useState(
+    "Edith is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+  );
+  const [profilePicture, setProfilePicture] = useState(
+    "https://bootdey.com/img/Content/avatar/avatar7.png"
+  );
+
+  const handleNameChange = (event) => setName(event.target.value);
+  const handlePositionChange = (event) => setPosition(event.target.value);
+  const handleExperienceChange = (event) => setExperience(event.target.value);
+  const handleEmailChange = (event) => setEmail(event.target.value);
+  const handleWebsiteChange = (event) => setWebsite(event.target.value);
+  const handlePhoneChange = (event) => setPhone(event.target.value);
+  const handleAboutChange = (event) => setAbout(event.target.value);
+  const handleProfilePictureChange = (event) => setProfilePicture(URL.createObjectURL(event.target.files[0]));
+
+  return (
+    <section className="bg-light">
+      <div className="container">
         <div className="row">
-            <div className="col-lg-12 mb-4 mb-sm-5">
-                <div className="card card-style1 border-0">
-                    <div className="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
-                        <div className="row align-items-center">
-                            <div className="col-lg-6 mb-4 mb-lg-0">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="..."/>
-                            </div>
-                            <div className="col-lg-6 px-xl-10">
-                                <div className="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
-                                    <h3 className="h2 text-white mb-0">John mark Doe Kyzer</h3>
-                                    <span className="text-primary">Coach</span>
-                                </div>
-                                <ul className="list-unstyled mb-1-9">
-                                    <li className="mb-2 mb-xl-3 display-28"><span className="display-26 text-secondary me-2 font-weight-600">Position:</span> Coach</li>
-                                    <li className="mb-2 mb-xl-3 display-28"><span className="display-26 text-secondary me-2 font-weight-600">Experience:</span> 10 Years</li>
-                                    <li className="mb-2 mb-xl-3 display-28"><span className="display-26 text-secondary me-2 font-weight-600">Email:</span> edith@mail.com</li>
-                                    <li className="mb-2 mb-xl-3 display-28"><span className="display-26 text-secondary me-2 font-weight-600">Website:</span> www.example.com</li>
-                                    <li className="display-28"><span className="display-26 text-secondary me-2 font-weight-600">Phone:</span> 507 - 541 - 4567</li>
-                                </ul>
-                                <ul className="social-icon-style1 list-unstyled mb-0 ps-0">
-                                    <li><a href="#!"><i className="ti-twitter-alt"></i></a></li>
-                                    <li><a href="#!"><i className="ti-facebook"></i></a></li>
-                                    <li><a href="#!"><i className="ti-pinterest"></i></a></li>
-                                    <li><a href="#!"><i className="ti-instagram"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
+          <div className="col-lg-12 mb-4 mb-sm-5">
+            <div className="card card-style1 border-0">
+              <div className="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                <div className="row align-items-center">
+                  <div className="col-lg-6 mb-4 mb-lg-0">
+                    <img src={profilePicture} alt="Profile" />
+                    <input type="file" onChange={handleProfilePictureChange} />
+                  </div>
+                  <div className="col-lg-6 px-xl-10">
+                    <div className="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
+                      <input
+                        type="text"
+                        value={name}
+                        onChange={handleNameChange}
+                        className="h2 text-white mb-0"
+                      />
+                      <input
+                        type="text"
+                        value={position}
+                        onChange={handlePositionChange}
+                        className="text-primary"
+                      />
                     </div>
-                </div>
-            </div>
-            <div className="col-lg-12 mb-4 mb-sm-5">
-                <div>
-                    <span className="section-title text-primary mb-3 mb-sm-4">About Me</span>
-                    <p>Edith is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    <p className="mb-0">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed.</p>
-                </div>
-            </div>
-            {/* <div className="col-lg-12">
-                <div className="row">
-                    <div className="col-lg-12 mb-4 mb-sm-5">
-                        <div className="mb-4 mb-sm-5">
-                            <span className="section-title text-primary mb-3 mb-sm-4">Skill</span>
-                            <div className="progress-text">
-                                <div className="row">
-                                    <div className="col-6">Driving range</div>
-                                    <div className="col-6 text-end">80%</div>
-                                </div>
-                            </div>
-                            <div className="custom-progress progress progress-medium mb-3" style={{height: "4px"}}>
-                                <div className="animated custom-bar progress-bar slideInLeft bg-secondary" style={{width:"80%"}} aria-valuemax="100" aria-valuemin="0" aria-valuenow="10" role="progressbar"></div>
-                            </div>
-                            <div className="progress-text">
-                                <div className="row">
-                                    <div className="col-6">Short Game</div>
-                                    <div className="col-6 text-end">90%</div>
-                                </div>
-                            </div>
-                            <div className="custom-progress progress progress-medium mb-3" style={{height: "4px"}}>
-                                <div className="animated custom-bar progress-bar slideInLeft bg-secondary" style={{width: "90%"}} aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" role="progressbar"></div>
-                            </div>
-                            <div className="progress-text">
-                                <div className="row">
-                                    <div className="col-6">Side Bets</div>
-                                    <div className="col-6 text-end">50%</div>
-                                </div>
-                            </div>
-                            <div className="custom-progress progress progress-medium mb-3" style={{height: "4px"}}>
-                                <div className="animated custom-bar progress-bar slideInLeft bg-secondary" style={{width: "50%"}} aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" role="progressbar"></div>
-                            </div>
-                            <div className="progress-text">
-                                <div className="row">
-                                    <div className="col-6">Putting</div>
-                                    <div className="col-6 text-end">60%</div>
-                                </div>
-                            </div>
-                            <div className="custom-progress progress progress-medium" style={{height: "4px"}}>
-                                <div className="animated custom-bar progress-bar slideInLeft bg-secondary" style={{width: "60%"}} aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" role="progressbar"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <span className="section-title text-primary mb-3 mb-sm-4">Education</span>
-                            <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</p>
-                            <p className="mb-1-9">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-              
-                        </div>
+                    <ul className="list-unstyled mb-1-9">
+                      <li className="mb-2 mb-xl-3 display-28">
+                        <span className="display-26 text-secondary me-2 font-weight-600">
+                          Position:
+                        </span>
+                        <input
+                          type="text"
+                          value={position}
+                          onChange={handlePositionChange}
+                          className="form-control form-control-lg"
+                        />
+                      </li>
+                      <li className="mb-2 mb-xl-3 display-28">
+                        <span className="display-26 text-secondary me-2 font-weight-600">
+                          Experience:
+                        </span>
+                        <input
+                          type="text"
+                          value={experience}
+                          onChange={handleExperienceChange}
+                          className="form-control form-control-lg"
+                        />
+                      </li>
+                      <li className="mb-2 mb-xl-3 display-28">
+                        <span className="display-26 text-secondary me-2 font-weight-600">
+                          Email:
+                        </span>
+                        <input
+                          type="email"
+                          value={email}
+                          onChange={handleEmailChange}
+                          className="form-control form-control-lg"
+                        />
+                      </li>
+                      <li className="mb-2 mb-xl-3 display-28">
+                        <span className="display-26 text-secondary me-2 font-weight-600">
+                          Website:
+                        </span>
+                        <input
+                          type="url"
+                          value={website}
+                          onChange={handleWebsiteChange}
+                          className="form-control form-control-lg"
+                        />
+                      </li>
+                      <li className="mb-2 mb-xl-3 display-28">
+                        <span className="display-26 text-secondary me-2 font-weight-600">
+                          Phone:
+                        </span>
+                        <input
+                          type="tel"
+                          value={phone}
+                          onChange={handlePhoneChange}
+                          className="form-control form-control-lg"
+                        />
+                      </li>
+                    </ul>
+                    <div className="mb-1-9">
+                      <h2 className="h5 mb-1-9">About Me</h2>
+                      <textarea
+                        value={about}
+                        onChange={handleAboutChange}
+                        rows="6"
+                        className="form-control"
+                      />
                     </div>
+                  </div>
                 </div>
-            </div> */}
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</section>
-    )
+      </div>
+    </section>
+  );
 }
-
-export default Profile
+export default Profile;
 
