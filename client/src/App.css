@@ -82,3 +82,9 @@ display: flex;
 .rules {
   font-style: italic;
 }
+
+#start-button {
+  display: flex;
+  align-items: center;
+  padding-left: 43%;
+}
