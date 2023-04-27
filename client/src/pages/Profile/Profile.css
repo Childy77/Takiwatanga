@@ -1,0 +1,17 @@
+.background1 {
+    background-color: #FA8BFF;
+    background-image: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
+}
+
+.container3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    min-width: 70vw;
+  }
+
+  .row1 {
+    margin: 5px;
+    padding: 5px;
+  }
