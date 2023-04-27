@@ -88,3 +88,6 @@ display: flex;
   align-items: center;
   padding-left: 43%;
 }
+.card {
+  font-family: serif;
+}
