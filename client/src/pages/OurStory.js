@@ -3,9 +3,9 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
 import Digory from "../assets/Dig1.jpg";
-// import Digory from "../assets/Dig1.jpg";
-// import Digory from "../assets/Dig1.jpg";
-// import Digory from "../assets/Dig1.jpg";
+import Colton from "../assets/Colton1.jpg";
+import Ashley from "../assets/Ashley1.webp";
+import Johann from "../assets/Johann1.jpg";
 
 
 import CardGroup from 'react-bootstrap/CardGroup';
@@ -24,7 +24,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
         
       </Card>
       <Card>
-        <Card.Img variant="top" src={Digory} alt="Photo of a child" />
+        <Card.Img variant="top" src={Colton} alt="Photo of a Lynx" />
         <Card.Body>
           <Card.Title>Colton Taylor-Ortiz</Card.Title>
           <Card.Text>
@@ -35,19 +35,17 @@ import CardGroup from 'react-bootstrap/CardGroup';
         
       </Card>
       <Card>
-        <Card.Img variant="top" src={Digory} alt="Photo of a child" />
+        <Card.Img variant="top" src={Ashley} alt="Photo of a Rocks and water" />
         <Card.Body>
           <Card.Title>Ashley Arena</Card.Title>
           <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This card has even longer content than the
-            first to show that equal height action.
+            As part of the Development Team, I am passionate about creating a safe and respective place to share and lean on others for support and encouragement. This project has been such a rewarding experience to work and collaborate on. I hope you will find this app to be the missing piece of support you need to keep being the amazing parent you already are.
           </Card.Text>
         </Card.Body>
         
       </Card>
       <Card>
-        <Card.Img variant="top" src={Digory} alt="Photo of a child" />
+        <Card.Img variant="top" src={Johann} alt="Photo of an octopus" />
         <Card.Body>
           <Card.Title>Johann Kubeja</Card.Title>
           <Card.Text>
