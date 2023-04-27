@@ -17,7 +17,7 @@ import "./pages/Signup/Signup.css"
 import "./pages/Profile/Profile.css"
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost:300/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -37,8 +37,6 @@ const client = new ApolloClient({
 
 function App() {
  
-
-  
   return (
     <ApolloProvider client={client}>
     <div className="App">

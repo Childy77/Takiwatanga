@@ -28,8 +28,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
         <Card.Body>
           <Card.Title>Colton Taylor-Ortiz</Card.Title>
           <Card.Text>
-            This card has supporting text below as a natural lead-in to
-            additional content.{' '}
+            I am part of the development team in the Takiwatanga website, and I am very excited on creating an interactive and user-friendly website that is supportive of people or for families of people that have someone with special needs. I have an older brother named Noah that has Autism, and he used to have very severe symptoms, but has come so far from that point and is now doing very well! Although he contiunes to struggle with many things, it is amazing how much a great support system can do to help! I think it is not only important, but vital to to have a safe place for anyone to talk about their experiences!{' '}
           </Card.Text>
         </Card.Body>
         
