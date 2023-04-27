@@ -39,7 +39,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
         <Card.Body>
           <Card.Title>Ashley Arena</Card.Title>
           <Card.Text>
-            Insert Bio
+            As part of the Development Team, I am passionate about creating a safe and respective place to share and lean on others for support and encouragement. This project has been such a rewarding experience to work and collaborate on. I hope you will find this app to be the missing piece of support you need to keep being the amazing parent you already are.
           </Card.Text>
         </Card.Body>
         
