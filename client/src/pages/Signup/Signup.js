@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import Auth from '../utils/auth';
-import { ADD_USER } from '../utils/mutations';
+import Auth from '../../utils/auth';
+import { ADD_USER } from '../../utils/mutations';
 
 function Signup(props) {
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  const [addUser] = useMutation(ADD_USER);
+  const [formState, setFormState] = useState({
+    email: '',
+    password: '',
+    screenname: ''
+  });
+
+  const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await addUser({
-      variables: {
-        email: formState.email,
-        password: formState.password,
-        screenname: formState.screenname,
-      },
-    });
-    const token = mutationResponse.data.addUser.token;
-    Auth.login(token);
+    try {
+      const { data } = await addUser({
+        variables: { ...formState }
+      });
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   const handleChange = (event) => {
@@ -30,18 +34,20 @@ function Signup(props) {
   };
 
   return (
-    <div className="container ">
-      <Link to="/login">← Go to Login</Link>
+    <div className="container container2">
+      <div className='card'>
 
       <h2>Signup</h2>
+      {error && <div>Sign up failed</div>}
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between">
           <label htmlFor="screenname">Username:</label>
           <input
-            placeholder="Screen"
+            placeholder="Username123"
             name="screenname"
-            type="screenname"
+            type="text"
             id="screenname"
+            value={formState.screenname}
             onChange={handleChange}
           />
         </div>
@@ -52,6 +58,7 @@ function Signup(props) {
             name="email"
             type="email"
             id="email"
+            value={formState.email}
             onChange={handleChange}
           />
         </div>
@@ -62,13 +69,16 @@ function Signup(props) {
             name="password"
             type="password"
             id="pwd"
+            value={formState.password}
             onChange={handleChange}
           />
         </div>
+        <Link to="/signin">← Go to Login</Link>
         <div className="flex-row flex-end">
           <button type="submit">Submit</button>
         </div>
       </form>
+      </div>
     </div>
   );
 }

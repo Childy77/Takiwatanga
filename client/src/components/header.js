@@ -17,10 +17,10 @@ const Header = () => {
             <Link className="nav-link" to="/ourstory">Our Story</Link>
             <NavDropdown title="User" id="basic-nav-dropdown">
               <Link className="dropdown-item" to="/profile">Profile</Link>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item href="signin">
                 Log in
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item href="signup">
                 Logout
               </NavDropdown.Item>
               
