@@ -48,9 +48,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
         <Card.Body>
           <Card.Title>Johann Kubeja</Card.Title>
           <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This card has even longer content than the
-            first to show that equal height action.
+          I am part of the development team in the Takiwatanga website as well. I have had autism all my life and it is an ongoing challenge. I know I have struggled with talking about my troubles before and I am glad to see the support from others in this project. I love knowing there is now a place to share our experiences and help eachother navitgate.  {' '}
           </Card.Text>
         </Card.Body>
         
