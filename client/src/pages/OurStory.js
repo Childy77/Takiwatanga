@@ -39,9 +39,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
         <Card.Body>
           <Card.Title>Ashley Arena</Card.Title>
           <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This card has even longer content than the
-            first to show that equal height action.
+            Insert Bio
           </Card.Text>
         </Card.Body>
         
