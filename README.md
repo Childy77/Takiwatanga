@@ -26,7 +26,7 @@ At this time we would to formally introduce the team and break down the acknowle
 
 
 ## Patrick "Ryan" Childers (https://github.com/Childy77) - Elected Team Leader.  
-Created and styled each page. I created to initial HTML and CSS template to add to. I then took what the team developed in the working app and added more styling and format to make it more usable and and functional.
+Created and styled each page. I created to initial HTML and CSS template to add to. I then took what the team developed in the working app and added more styling and format to make it more usable and functional.
 
 Colton Taylor-Ortiz (https://github.com/)- 
 
