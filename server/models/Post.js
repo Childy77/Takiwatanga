@@ -13,6 +13,7 @@ const postSchema = new Schema({
       type: String,
       required: true,
       trim: true,
+      default: "nobody"
     },
     createdAt: {
       type: Date,
