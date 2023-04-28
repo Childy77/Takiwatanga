@@ -51,7 +51,7 @@ const resolvers = {
     addPost: async (parent, { postText }, context) => {
       if (context.user) {
         const thought = await Post.create({
-          PostText,
+          postText,
           PostAuthor: context.user.username,
         });
 
@@ -60,14 +60,14 @@ const resolvers = {
           { $addToSet: { posts: post._id } }
         );
 
-        return post;
+        return thought;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
     addComment: async (parent, { postId, commentText }, context) => {
       if (context.user) {
         return Post.findOneAndUpdate(
-          { _id: PostId },
+          { _id: postId },
           {
             $addToSet: {
               comments: { commentText, commentAuthor: context.user.username },
