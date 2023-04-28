@@ -25,7 +25,8 @@ At this time, we are not looking for contributions to the project. We are excite
 At this time we would to formally introduce the team and break down the acknowledgements of the work each person has presented and gifted this project. First it is always nice to work and develop skills with others, but working with each member has been truly rewarding.  
 
 
-## Patrick Childers (https://github.com/Childy77) - Elected Team Leader.  Created and styled each page. I created to initial HTML and CSS template to add to. I then took what the team developed in the working app and added more styling and format to make it more usable and and functional.
+## Patrick "Ryan" Childers (https://github.com/Childy77) - Elected Team Leader.  
+Created and styled each page. I created to initial HTML and CSS template to add to. I then took what the team developed in the working app and added more styling and format to make it more usable and and functional.
 
 Colton Taylor-Ortiz (https://github.com/)- 
 

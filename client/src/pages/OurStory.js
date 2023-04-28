@@ -15,7 +15,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
             <CardGroup>
       <Card>
         <Card.Img variant="top" src={Digory} alt="Photo of a child" />
-        <Card.Body>
+        <Card.Body className="card">
           <Card.Title>Ryan Childers</Card.Title>
           <Card.Text>
           I have a child with Autism.  His name is Digory.  We were suspicious of his condition at a very early age.  We then had him diagnosed, and proceeded to find him the best possible therapies and educational environment possible for him.  It has been difficult, but our love for him and hope for his future grows every day.  It is my goal with this site to be able share and support one another through our struggles and victories and people with special needs.

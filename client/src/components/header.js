@@ -15,6 +15,7 @@ const Header = () => {
           <Nav className="me-auto">
             <Link className="nav-link" to="/">Home</Link>
             <Link className="nav-link" to="/ourstory">Our Story</Link>
+            <Link className="nav-link" to="/post">Post</Link>
             <NavDropdown title="User" id="basic-nav-dropdown">
               <Link className="dropdown-item" to="/profile">Profile</Link>
               <NavDropdown.Item href="signin">
