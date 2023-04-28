@@ -8,6 +8,7 @@ import Footer from './components/footer';
 import Profile from './pages/Profile/Profile';
 import OurStory from "./pages/OurStory";
 import Terms from "./pages/Terms";
+import Post from "./pages/Post";
 import Signin from "./pages/Signin/Signin";
 import Signup from "./pages/Signup/Signup";
 
@@ -17,7 +18,7 @@ import "./pages/Signup/Signup.css"
 import "./pages/Profile/Profile.css"
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:300/graphql',
+  uri: 'http://localhost:3001/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -48,6 +49,7 @@ function App() {
         <Route path='/terms'element={<Terms/>}/>
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/post" element={<Post />} />
       </Routes>
       <Footer/>
     </div>

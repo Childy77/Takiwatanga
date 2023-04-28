@@ -13,6 +13,8 @@ function Signup(props) {
 
   const [addUser, { error }] = useMutation(ADD_USER);
 
+  
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -32,6 +34,7 @@ function Signup(props) {
       [name]: value,
     });
   };
+  
 
   return (
     <div className="container container2">
