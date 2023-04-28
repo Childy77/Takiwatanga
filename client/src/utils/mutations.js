@@ -29,3 +29,62 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_POST = gql`
+mutation addPost($postText: String!) {
+  addPost(postText: $postText) {
+    _id
+    postText
+    postAuthor
+    createdAt
+    comments {
+      _id
+      commentText
+      commentAuthor
+    }
+  }
+}
+`
+
+export const ADD_COMMENT = gql`
+mutation addComment($postId: ID!, $commentText: String!) {
+  addComment(postId: $postId, commentText: $commentText) {
+    _id
+    postText
+    postAuthor
+    createdAt
+    comments {
+      _id
+      commentText
+      commentAuthor
+    }
+  }
+}
+`
+
+export const REMOVE_POST = gql`
+mutation removePost($postId: ID!) {
+  removePost(postId: $postId) {
+    _id
+    postText
+    postAuthor
+    createdAt
+  }
+}
+`
+
+export const REMOVE_COMMENT = gql`
+mutation removeComment($postId: ID!, $commentId: ID!) {
+  removeComment(postId: $postId, commentId: $commentId) {
+    _id
+    postText
+    postAuthor
+    createdAt
+    comments {
+      _id
+      commentText
+      commentAuthor
+    }
+  }
+}
+`
