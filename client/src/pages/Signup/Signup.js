@@ -6,23 +6,24 @@ import { ADD_USER } from '../../utils/mutations';
 
 function Signup(props) {
   const [formState, setFormState] = useState({
+    username: '',
     email: '',
-    password: '',
-    screenname: ''
+    password: ''
   });
 
-  const [addUser, { error }] = useMutation(ADD_USER);
+  const [addUser] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const { data } = await addUser({
-        variables: { ...formState }
-      });
-      Auth.login(data.addUser.token);
-    } catch (e) {
-      console.error(e);
-    }
+    const mutationResponse = await addUser({
+      variables: {
+        email: formState.email,
+        password: formState.password,
+        username: formState.username,
+      },
+    });
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
   };
 
   const handleChange = (event) => {
@@ -38,16 +39,16 @@ function Signup(props) {
       <div className='card'>
 
       <h2>Signup</h2>
-      {error && <div>Sign up failed</div>}
+      {/* {mutationResponse.error && <div>Sign up failed</div>} */}
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between">
-          <label htmlFor="screenname">Username:</label>
+          <label htmlFor="username">Username:</label>
           <input
             placeholder="Username123"
-            name="screenname"
-            type="text"
-            id="screenname"
-            value={formState.screenname}
+            name="username"
+            type="username"
+            id="username"
+            // value={formState.username}
             onChange={handleChange}
           />
         </div>
@@ -58,18 +59,18 @@ function Signup(props) {
             name="email"
             type="email"
             id="email"
-            value={formState.email}
+            // value={formState.email}
             onChange={handleChange}
           />
         </div>
         <div className="flex-row space-between">
-          <label htmlFor="pwd">Password:</label>
+          <label htmlFor="password">Password:</label>
           <input
             placeholder="******"
             name="password"
             type="password"
-            id="pwd"
-            value={formState.password}
+            id="password"
+            // value={formState.password}
             onChange={handleChange}
           />
         </div>

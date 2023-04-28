@@ -1,24 +1,30 @@
 import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
+import { LOGIN } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 function Signin(props) {
-  const [{ email, password }, setFormState] = useState({ email: '', password: '' });
-  const [error, setError] = useState(null);
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error }] = useMutation(LOGIN);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    if (!email || !password) {
-      setError("Please enter both email and password");
-      return;
+    try {
+      const mutationResponse = await login({
+        variables: { email: formState.email, password: formState.password },
+      });
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
     }
-    setError(null);
-    alert("Successful login!");
   };
 
-  const handleInputChange = (event) => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState({
-      ...{ email, password },
+      ...formState,
       [name]: value,
     });
   };
@@ -37,7 +43,7 @@ function Signin(props) {
             name="email"
             type="email"
             id="email"
-            onChange={handleInputChange}
+            onChange={handleChange}
           />
         </div>
         <div className="flex-row">
@@ -47,14 +53,14 @@ function Signin(props) {
             name="password"
             type="password"
             id="pwd"
-            onChange={handleInputChange}
+            onChange={handleChange}
           />
         </div>
         <Link to="/signup" className="btn-primary mb-3">Don't have an account? Sign up for one!</Link>
         <div>
-          {error && (
-            <p className="error-text">{error}</p>
-          )}
+          {error && 
+            <p className="error-text">The provided credentials are incorrect</p>
+          }
         </div>
         <div className="flex-row flex-end">
           <button type="submit" aria-label="Submit form" className="btn btn-primary">Submit</button>
