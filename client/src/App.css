@@ -1,7 +1,22 @@
 body {
-  background-color: #FA8BFF;
-    background-image: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
+    background: linear-gradient(45deg, #f53cff, #FA8BFF, #2BD2FF, #2BFF88, #ee7752, #23d5ab);
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+    background-size: 400% 400%;
 }
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 
 .navbar {
     background-color: #FA8BFF;
@@ -69,7 +84,7 @@ display: flex;
     background-color: #FA8BFF;
     background-image: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
     color: black;
-    
+    min-width: 100vw;
 }
 .terms {
   text-align: center;
