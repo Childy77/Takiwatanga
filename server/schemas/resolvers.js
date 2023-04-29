@@ -23,6 +23,14 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    getPosts: async () => {
+      try {
+        const posts = await Post.find().sort({ createdAt: -1 });
+        return posts;
+      } catch (err) {
+        throw new Error(err);
+      }
+    },
   },
 
   Mutation: {
@@ -66,21 +74,41 @@ const resolvers = {
     },
     addComment: async (parent, { postId, commentText }, context) => {
       if (context.user) {
-        return Post.findOneAndUpdate(
+        const post = await Post.findOneAndUpdate(
           { _id: postId },
           {
             $addToSet: {
-              comments: { commentText, commentAuthor: context.user.username },
+              comments: {
+                commentText: commentText,
+                commentAuthor: context.user.username,
+              },
             },
           },
           {
             new: true,
             runValidators: true,
           }
-        );
+        ).populate({
+          path: 'comments',
+          populate: { path: 'commentAuthor', model: 'User' },
+        });
+    
+        return post;
       }
       throw new AuthenticationError('You need to be logged in!');
-    },
+    },    
+    updatePost: async (parent, { postId, postText }, context) => {
+      if (context.user) {
+        const post = await Post.findOneAndUpdate(
+          { _id: postId, postAuthor: context.user.username },
+          { postText },
+          { new: true }
+        );
+
+        return post;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    }, 
     removePost: async (parent, { postId }, context) => {
       if (context.user) {
         const post = await Post.findOneAndDelete({
@@ -101,19 +129,12 @@ const resolvers = {
       if (context.user) {
         return Post.findOneAndUpdate(
           { _id: postId },
-          {
-            $pull: {
-              comments: {
-                _id: commentId,
-                commentAuthor: context.user.username,
-              },
-            },
-          },
+          { $pull: { comments: { _id: commentId, commentAuthor: context.user.username } } },
           { new: true }
         );
       }
       throw new AuthenticationError('You need to be logged in!');
-    },
+    },    
   },
 };
 

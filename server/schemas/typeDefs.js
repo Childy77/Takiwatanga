@@ -35,6 +35,7 @@ const typeDefs = gql`
     posts(username: String): [Post]
     post(postId: ID!): Post
     me: User
+    getPosts: [Post]
   }
 
   type Mutation {
@@ -44,6 +45,7 @@ const typeDefs = gql`
     addComment(postId: ID!, commentText: String!): Post
     removePost(postId: ID!): Post
     removeComment(postId: ID!, commentId: ID!): Post
+    updatePost(postId: ID!, postText: String!): Post
   }
 `;
 
