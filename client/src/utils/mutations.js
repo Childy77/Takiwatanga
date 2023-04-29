@@ -88,3 +88,19 @@ mutation removeComment($postId: ID!, $commentId: ID!) {
   }
 }
 `
+
+export const UPDATE_POST = gql`
+  mutation updatePost($postId: ID!, $postText: String!) {
+    updatePost(postId: $postId, postText: $postText) {
+      _id
+      postText
+      postAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        commentAuthor
+      }
+    }
+  }
+`;
