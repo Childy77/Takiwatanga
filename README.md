@@ -1,5 +1,12 @@
 # Takiwatanga
 
+## Screenshots
+![](client/src/assets/Takiwatanga1.png)
+![](client/src/assets/Takiwatanga2.png)
+![](client/src/assets/Takiwatanga3.png)
+![](client/src/assets/Takiwatanga4.png)
+
+
 ## Description
 This is a group project for a coding bootcamp to demonstrate the collective knowledge gained from the class so far and the ability of each contributer to learn independently new skills to enhance the understanding and ability of said project. In this designed app users will be prompted to sign up or log in to begin which will therefore be stored into the database; which can be recalled upon. Once signed in, users will be directed to user dashboard displaying account and user information.
 
