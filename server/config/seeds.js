@@ -20,38 +20,37 @@ db.once('open', async () => {
 
   const post1 = await Post.create({
     postText: 'Hello, world!',
-    postAuthor: user1._id,
+    postAuthor: user1.username,
   });
 
   const post2 = await Post.create({
     postText: 'Testing out Takiwatanga!',
-    postAuthor: user2._id,
+    postAuthor: user2.username,
   });
 
   const comment1 = await Comment.create({
-    comments: [
-      {
-        commentText: 'Welcome to the site!',
-        commentAuthor: user2._id,
-      },
-    ],
+    commentText: 'Welcome to the site!',
+    commentAuthor: user2.username,
   });
 
   const comment2 = await Comment.create({
-    comments: [
-      {
-        commentText: 'Nice post!',
-        commentAuthor: user1._id,
-      },
-    ],
+    commentText: 'Nice post!',
+    commentAuthor: user1.username,
   });
 
-  // Associate comments with posts
   await Post.findByIdAndUpdate(post1._id, {
     $push: { comments: comment1._id },
   });
 
   await Post.findByIdAndUpdate(post2._id, {
+    $push: { comments: comment2._id },
+  });
+
+  await User.findByIdAndUpdate(user2._id, {
+    $push: { comments: comment1._id },
+  });
+
+  await User.findByIdAndUpdate(user1._id, {
     $push: { comments: comment2._id },
   });
 

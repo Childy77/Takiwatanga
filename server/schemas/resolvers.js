@@ -25,12 +25,12 @@ const resolvers = {
     },
     getPosts: async () => {
       try {
-        const posts = await Post.find().sort({ createdAt: -1 });
+        const posts = await Post.find().populate('comments').sort({ createdAt: -1 });
         return posts;
       } catch (err) {
         throw new Error(err);
       }
-    },
+    },    
   },
 
   Mutation: {
@@ -74,29 +74,28 @@ const resolvers = {
     },
     addComment: async (parent, { postId, commentText }, context) => {
       if (context.user) {
+        const newComment = await Comment.create({
+          commentText: commentText,
+          commentAuthor: context.user.username,
+        });
         const post = await Post.findOneAndUpdate(
           { _id: postId },
           {
             $addToSet: {
-              comments: {
-                commentText: commentText,
-                commentAuthor: context.user.username,
-              },
+              comments: newComment._id,
             },
           },
           {
             new: true,
             runValidators: true,
           }
-        ).populate({
-          path: 'comments',
-          populate: { path: 'commentAuthor', model: 'User' },
-        });
+        ).populate('comments');
     
         return post;
       }
       throw new AuthenticationError('You need to be logged in!');
-    },    
+    },
+      
     updatePost: async (parent, { postId, postText }, context) => {
       if (context.user) {
         const post = await Post.findOneAndUpdate(
@@ -127,14 +126,21 @@ const resolvers = {
     },
     removeComment: async (parent, { postId, commentId }, context) => {
       if (context.user) {
-        return Post.findOneAndUpdate(
-          { _id: postId },
-          { $pull: { comments: { _id: commentId, commentAuthor: context.user.username } } },
-          { new: true }
-        );
+        const comment = await Comment.findById(commentId);
+        if (comment.commentAuthor === context.user.username) {
+          const post = await Post.findOneAndUpdate(
+            { _id: postId },
+            { $pull: { comments: commentId } },
+            { new: true }
+          ).populate('comments');
+          await Comment.findByIdAndRemove(commentId);
+          return post;
+        } else {
+          throw new AuthenticationError('You are not authorized to delete this comment');
+        }
       }
       throw new AuthenticationError('You need to be logged in!');
-    },    
+    },
   },
 };
 
