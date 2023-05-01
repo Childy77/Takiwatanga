@@ -17,6 +17,7 @@ const PostsList = () => {
   const [updatedPostText, setUpdatedPostText] = useState('');
   const [selectedPost, setSelectedPost] = useState({});
 
+    // console.log('Data:', data);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
@@ -72,7 +73,9 @@ const PostsList = () => {
           <Col key={post._id} xs={12} md={6} lg={4}>
             <Card className="mb-3">
               <Card.Body>
-                <Card.Title>{post.postAuthor}</Card.Title>
+                <Card.Title>
+                <strong>{post.postAuthor}</strong>
+                </Card.Title>
                 <Card.Text>{post.postText}</Card.Text>
                 <Button
                   variant="danger"
@@ -105,7 +108,7 @@ const PostsList = () => {
               <div key={comment._id}>
                 <hr />
                 <Card.Text>
-                  <strong> {comment.commentAuthor}</strong> {comment.commentText}
+                  <strong> {comment.commentAuthor}:</strong> {comment.commentText}
                 </Card.Text>
                 <Button
                   variant="danger"
