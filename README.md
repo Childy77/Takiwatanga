@@ -35,8 +35,8 @@ At this time we would to formally introduce the team and break down the acknowle
 ## Patrick "Ryan" Childers (https://github.com/Childy77) - Elected Team Leader.  
 Created and styled each page. I created to initial HTML and CSS template to add to. I then took what the team developed in the working app and added more styling and format to make it more usable and functional.
 
-## Colton Taylor-Ortiz (https://github.com/)- 
-Created the sign in page and sign out page. I also worked on the profile page to help link them. Then I was able to  Worked on front end with Partrick as well and various CSS sheets. 
+## Colton Taylor-Ortiz (https://github.com/ColtonTO)- 
+Created the sign in page and sign out page. I also worked on the profile page to help link them. Then I was able to work on front end with Partrick as well and various CSS sheets. I also did help with a lot of the back-end components for the Post pages. 
 ## Ashley Arena (https://github.com/aecarena) - 
 I created the backbone of the back-end. I was able to help work with the rest of the crew in order to help deploy and solve server side issues. 
 
